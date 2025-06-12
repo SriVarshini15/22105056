@@ -15,15 +15,15 @@ const PORT = process.env.PORT || 5050;
 
 app.use(express.json());
 
-// ✅ Serve static files (HTML/CSS/JS) from public/
+// Serve static files (HTML/CSS/JS) from public/
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ✅ Serve index.html as homepage
+// Serve index.html as homepage
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// ✅ API endpoint: /numbers/:id (p, f, e, r)
+// API endpoint: /numbers/:id (p, f, e, r)
 app.get('/numbers/:id', async (req, res) => {
   const id = req.params.id.toLowerCase();
 
@@ -52,7 +52,7 @@ app.get('/numbers/:id', async (req, res) => {
   }
 });
 
-// ✅ Start server
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running at: http://localhost:${PORT}`);
 });
